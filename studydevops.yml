@@ -1,5 +1,6 @@
 ---
-- name: lesson1
+
+- name: job
   hosts: studydevops
   become: yes
 
@@ -12,25 +13,17 @@
       line='mywebserv1'
       state=present
 
-  tasks:
   - name: apt update
     apt: 
       update_cache=yes
   - name: Install git, mc, wget, curl, tree, docker, docker-compose
     apt:
       pkg:
-      name: git
+        - git
+        - mc
+        - wget
+        - curl
+        - docker.io
+        - docker-compose
+        - tree
       state: present
-      name: mc
-      state: present
-      name: wget
-      state: present
-      name: curl
-      state: present
-      name: docker.io
-      state: present
-      name: docker-compose
-      state: present
-      name: tree
-      state: present
-
